@@ -20,6 +20,7 @@
 )
 
 #let xsol = $x^delta_lambda$
+#let argmin = $op("arg min", limits: #true)$
 
 = Introduction
 
@@ -30,7 +31,7 @@ While a technique like least-square approximation will minimize the residual bet
 A better solution is thus to use a regularizer to better capture some features of the images that we would like to recover. The mathematical problem we would like to solve is the following one:
 
 $
-  xsol := min_x 1/2 ||A x - y^delta|| + lambda H_(epsilon)(gradient x)
+  xsol := argmin_x 1/2 ||A x - y^delta|| + lambda H_(epsilon)(gradient x)
 $
 
 Here, the regularizer is the Hubert function defined as:
@@ -194,7 +195,7 @@ Either way, the reconstructions are not as good as the ones obtained with the re
 
 = Reconstruction in 3D
 
-Now, we can move on to the reconstruction of the 3D CT scan of a human head. The parameters $epsilon = 0.001$ was kept from the 2D case, same goes for the step size $t = 1.9/L$. The parameter $lambda$ was chosen using Morozov's discrepancy principle as before and thus need to be re-tuned for this case.
+Now, we can move on to the reconstruction of the 3D CT scan of a human head. The parameter $epsilon = 0.001$ was kept from the 2D case, same goes for the step size $t = 1.9/L$. The parameter $lambda$ was chosen using Morozov's discrepancy principle as before and thus need to be re-tuned for this case.
 
 == Choice of $lambda$
 
